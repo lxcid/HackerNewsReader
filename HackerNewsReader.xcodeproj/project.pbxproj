@@ -429,6 +429,7 @@
 				2990B2DD1AD1FC600053DB80 /* Frameworks */,
 				2990B2DE1AD1FC600053DB80 /* Resources */,
 				3D78F6D5BB9B146864F2C0F7 /* Copy Pods Resources */,
+				DF553B04C249CF3112407883 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -542,6 +543,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackerNewsReader/Pods-HackerNewsReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF553B04C249CF3112407883 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackerNewsReader/Pods-HackerNewsReader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
