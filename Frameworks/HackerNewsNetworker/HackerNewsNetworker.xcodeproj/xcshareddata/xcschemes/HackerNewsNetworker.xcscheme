@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
-               BuildableName = "HackerNewsReader.app"
-               BlueprintName = "HackerNewsReader"
-               ReferencedContainer = "container:HackerNewsReader.xcodeproj">
+               BlueprintIdentifier = "2990B3991AD20B910053DB80"
+               BuildableName = "libHackerNewsNetworker.a"
+               BlueprintName = "HackerNewsNetworker"
+               ReferencedContainer = "container:HackerNewsNetworker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,20 +33,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2900FA181B30F0E100690100"
-               BuildableName = "HackerNewsReader Tests.xctest"
-               BlueprintName = "HackerNewsReader Tests"
-               ReferencedContainer = "container:HackerNewsReader.xcodeproj">
+               BlueprintIdentifier = "2990B3A41AD20B910053DB80"
+               BuildableName = "HackerNewsNetworkerTests.xctest"
+               BlueprintName = "HackerNewsNetworkerTests"
+               ReferencedContainer = "container:HackerNewsNetworker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
-            BuildableName = "HackerNewsReader.app"
-            BlueprintName = "HackerNewsReader"
-            ReferencedContainer = "container:HackerNewsReader.xcodeproj">
+            BlueprintIdentifier = "2990B3991AD20B910053DB80"
+            BuildableName = "libHackerNewsNetworker.a"
+            BlueprintName = "HackerNewsNetworker"
+            ReferencedContainer = "container:HackerNewsNetworker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -62,16 +62,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
-            BuildableName = "HackerNewsReader.app"
-            BlueprintName = "HackerNewsReader"
-            ReferencedContainer = "container:HackerNewsReader.xcodeproj">
+            BlueprintIdentifier = "2990B3991AD20B910053DB80"
+            BuildableName = "libHackerNewsNetworker.a"
+            BlueprintName = "HackerNewsNetworker"
+            ReferencedContainer = "container:HackerNewsNetworker.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -81,16 +80,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
-            BuildableName = "HackerNewsReader.app"
-            BlueprintName = "HackerNewsReader"
-            ReferencedContainer = "container:HackerNewsReader.xcodeproj">
+            BlueprintIdentifier = "2990B3991AD20B910053DB80"
+            BuildableName = "libHackerNewsNetworker.a"
+            BlueprintName = "HackerNewsNetworker"
+            ReferencedContainer = "container:HackerNewsNetworker.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
