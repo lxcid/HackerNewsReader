@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2990B35C1AD1FEB10053DB80"
-               BuildableName = "libHackerNewsKit.a"
-               BlueprintName = "HackerNewsKit"
-               ReferencedContainer = "container:HackerNewsKit.xcodeproj">
+               BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
+               BuildableName = "HackerNewsReader.app"
+               BlueprintName = "HackerNewsReader"
+               ReferencedContainer = "container:HackerNewsReader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,24 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2900FA181B30F0E100690100"
+               BuildableName = "HackerNewsReader Tests.xctest"
+               BlueprintName = "HackerNewsReader Tests"
+               ReferencedContainer = "container:HackerNewsReader.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2990B3671AD1FEB10053DB80"
-            BuildableName = "HackerNewsKitTests.xctest"
-            BlueprintName = "HackerNewsKitTests"
-            ReferencedContainer = "container:HackerNewsKit.xcodeproj">
+            BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
+            BuildableName = "HackerNewsReader.app"
+            BlueprintName = "HackerNewsReader"
+            ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -51,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2990B35C1AD1FEB10053DB80"
-            BuildableName = "libHackerNewsKit.a"
-            BlueprintName = "HackerNewsKit"
-            ReferencedContainer = "container:HackerNewsKit.xcodeproj">
+            BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
+            BuildableName = "HackerNewsReader.app"
+            BlueprintName = "HackerNewsReader"
+            ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -69,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2990B35C1AD1FEB10053DB80"
-            BuildableName = "libHackerNewsKit.a"
-            BlueprintName = "HackerNewsKit"
-            ReferencedContainer = "container:HackerNewsKit.xcodeproj">
+            BlueprintIdentifier = "2990B2DF1AD1FC600053DB80"
+            BuildableName = "HackerNewsReader.app"
+            BlueprintName = "HackerNewsReader"
+            ReferencedContainer = "container:HackerNewsReader.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
