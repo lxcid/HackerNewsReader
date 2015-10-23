@@ -1,0 +1,4 @@
+module DevToolsCore {
+	umbrella header "DevToolsCore.h"
+	link framework "DevToolsCore"
+}

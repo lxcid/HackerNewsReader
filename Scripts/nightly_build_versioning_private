@@ -1,0 +1,41 @@
+#!/usr/bin/env xcrun swift -I modules -F Rome -F /Applications/Xcode.app/Contents/SharedFrameworks -F /Applications/Xcode.app/Contents/Frameworks -F /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/Frameworks -framework DevToolsFoundation -framework DevToolsSupport -framework DVTSourceControl -framework IDEFoundation -framework DVTFoundation -framework IBFoundation -framework IBAutolayoutFoundation
+
+import DevToolsCore
+import LXSemVer
+
+IDEInitialize(true, nil)
+// The parameter is whether UI must be initialized (which we don't need)
+XCInitializeCoreIfNeeded(false)
+
+let root: NSString = ".."
+let workspace = root.stringByAppendingPathComponent("HackerNewsReader.xcworkspace")
+let projectPath = "/Users/khinboon/Projects/khinboon/HackerNewsReader/HackerNewsReader.xcodeproj"
+let scheme = "HackerNewsReader"
+let targetString = "HackerNewsReader"
+
+enum InfoPlistKey : String {
+	case VersionString = "CFBundleVersionString"
+	case ShortVersionString = "CFBundleShortVersionString"
+	case NightlyBuildVersionString = "LXNightlyBuildVersionString"
+}
+
+let project = PBXProject(file: projectPath)
+let target = project.targetNamed(targetString)
+
+if
+	let infoPlistFilePath = target.infoPlistFilePath() as? String,
+	let info = NSMutableDictionary(contentsOfFile: infoPlistFilePath),
+	let versionString = info[InfoPlistKey.ShortVersionString.rawValue] as? String,
+	let version = Version(string: versionString),
+	let nightlyBuildVersion = Int((info[InfoPlistKey.NightlyBuildVersionString.rawValue] as? String) ?? "0")
+{
+	let buildVersionString = info[InfoPlistKey.VersionString.rawValue] as? String ?? "0"
+	let buildVersion = DotSeparatedValues(string: buildVersionString)
+	let nextBuildVersion = buildVersion.next().sort(<).first!
+	let nextNightlyBuildVersion = nightlyBuildVersion + 1
+	let nextVersion = Version(major: version.major, minor: version.minor, patch: version.patch, prerelease: DotSeparatedValues(string: "nightly.\(nextNightlyBuildVersion)"))
+	info[InfoPlistKey.ShortVersionString.rawValue] = nextVersion.description
+	info[InfoPlistKey.VersionString.rawValue] = nextBuildVersion.description
+	info[InfoPlistKey.NightlyBuildVersionString.rawValue] = "\(nextNightlyBuildVersion)"
+	info.writeToFile(infoPlistFilePath, atomically: true)
+}

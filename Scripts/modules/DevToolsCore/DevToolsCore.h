@@ -1,0 +1,13 @@
+#import <DevToolsCore/PBXChangeNotification-Protocol.h>
+#import <DevToolsCore/PBXContainer.h>
+#import <DevToolsCore/PBXContainerItem.h>
+#import <DevToolsCore/PBXContainerItemChangeNotification-Protocol.h>
+#import <DevToolsCore/PBXObject.h>
+#import <DevToolsCore/PBXProject.h>
+#import <DevToolsCore/PBXProjectItem.h>
+#import <DevToolsCore/PBXTarget.h>
+#import <DevToolsCore/XCCompatibilityChecking-Protocol.h>
+#import <DevToolsCore/XCConfigurationInspectables-Protocol.h>
+#import <DevToolsCore/XCConfigurationListOwners-Protocol.h>
+#import <DevToolsCore/XCInitializeCore.h>
+#import <DevToolsCore/Xcode3ProjectCreationErrorHandling-Protocol.h>
