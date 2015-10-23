@@ -1,0 +1,13 @@
+PODS:
+  - LXSemVer (1.0.0)
+  - LXXcodeTools (0.0.2)
+
+DEPENDENCIES:
+  - LXSemVer (~> 1.0)
+  - LXXcodeTools (~> 0.0)
+
+SPEC CHECKSUMS:
+  LXSemVer: f9b23fd9e0fe30157a813894db8cb6098464b5bc
+  LXXcodeTools: 3a31409bcb5835df44cb097295274af1836cda11
+
+COCOAPODS: 0.39.0

@@ -1,0 +1,34 @@
+#!/usr/bin/env xcrun swift -F Rome
+
+import LXSemVer
+import LXXcodeTools
+
+let root: NSString = ".."
+let workspace = root.stringByAppendingPathComponent("HackerNewsReader.xcworkspace")
+let scheme = "HackerNewsReader"
+let target = "HackerNewsReader"
+
+enum InfoPlistKey : String {
+	case VersionString = "CFBundleVersionString"
+	case ShortVersionString = "CFBundleShortVersionString"
+	case NightlyBuildVersionString = "LXNightlyBuildVersionString"
+}
+
+if
+	let buildSettings = XcodeBuild.BuildSettings(workspace: workspace, scheme: scheme),
+	let infoPlistFilePath = buildSettings.valueForKey(.InfoPlistFile, target: target),
+	let info = NSMutableDictionary(contentsOfFile: root.stringByAppendingPathComponent(infoPlistFilePath)),
+	let versionString = info[InfoPlistKey.ShortVersionString.rawValue] as? String,
+	let version = Version(string: versionString),
+	let nightlyBuildVersion = Int((info[InfoPlistKey.NightlyBuildVersionString.rawValue] as? String) ?? "0")
+{
+	let buildVersionString = info[InfoPlistKey.VersionString.rawValue] as? String ?? "0"
+	let buildVersion = DotSeparatedValues(string: buildVersionString)
+	let nextBuildVersion = buildVersion.next().sort(<).first!
+	let nextNightlyBuildVersion = nightlyBuildVersion + 1
+	let nextVersion = Version(major: version.major, minor: version.minor, patch: version.patch, prerelease: DotSeparatedValues(string: "nightly.\(nextNightlyBuildVersion)"))
+	info[InfoPlistKey.ShortVersionString.rawValue] = nextVersion.description
+	info[InfoPlistKey.VersionString.rawValue] = nextBuildVersion.description
+	info[InfoPlistKey.NightlyBuildVersionString.rawValue] = "\(nextNightlyBuildVersion)"
+	info.writeToFile(root.stringByAppendingPathComponent(infoPlistFilePath), atomically: true)
+}

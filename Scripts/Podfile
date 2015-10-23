@@ -2,4 +2,5 @@ platform :osx, '10.10'
 
 plugin 'cocoapods-rome'
 
-pod 'Alamofire'
+pod 'LXSemVer', '~> 1.0'
+pod 'LXXcodeTools', '~> 0.0'
