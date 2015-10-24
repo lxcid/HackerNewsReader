@@ -21,6 +21,7 @@ if
 	let versionString = info[InfoPlistKey.ShortVersionString.rawValue] as? String,
 	let version = Version(string: versionString)
 {
-	print("WTF")
-	print(version)
+	if let prerelease = version.prerelease.values.first where prerelease == "nightly" {
+		print("WTF?")
+	}
 }
