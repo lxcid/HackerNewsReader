@@ -54,7 +54,21 @@ if
 		do {
 			let task = NSTask()
 			task.launchPath = "/usr/bin/git"
-			let arguments = [ "push", "--set-upstream", "--tags" ]
+			let arguments = [ "push", "--set-upstream" ]
+			task.arguments = arguments
+			
+			let pipe = NSPipe()
+			task.standardOutput = pipe
+			task.launch()
+			
+			let data = pipe.fileHandleForReading.readDataToEndOfFile()
+			var output = NSString(data: data, encoding: NSUTF8StringEncoding)
+		}
+		
+		do {
+			let task = NSTask()
+			task.launchPath = "/usr/bin/git"
+			let arguments = [ "push", "--tags" ]
 			task.arguments = arguments
 			
 			let pipe = NSPipe()
