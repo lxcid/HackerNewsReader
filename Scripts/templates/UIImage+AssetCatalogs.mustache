@@ -1,0 +1,14 @@
+import Foundation
+import UIKit
+
+extension UIImage {
+    enum AssetIdentifier: String {
+        {{#assets}}
+        case {{id}} = "{{filename}}"
+        {{/assets}}
+    }
+
+    convenience init!(assetIdentifier: AssetIdentifier) {
+        self.init(named: assetIdentifier.rawValue)
+    }
+}

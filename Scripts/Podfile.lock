@@ -1,13 +1,16 @@
 PODS:
-  - LXSemVer (1.0.0)
+  - GRMustache.swift (0.11.0)
+  - LXSemVer (1.0.1)
   - LXXcodeTools (0.0.2)
 
 DEPENDENCIES:
+  - GRMustache.swift (~> 0.11)
   - LXSemVer (~> 1.0)
   - LXXcodeTools (~> 0.0)
 
 SPEC CHECKSUMS:
-  LXSemVer: f9b23fd9e0fe30157a813894db8cb6098464b5bc
+  GRMustache.swift: 9d0eb125308a6a935169b5734a7ec460f561495e
+  LXSemVer: 83da5e75d3b3951380c4c8e2bc2ec0bbae971b4e
   LXXcodeTools: 3a31409bcb5835df44cb097295274af1836cda11
 
 COCOAPODS: 0.39.0

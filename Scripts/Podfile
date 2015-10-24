@@ -4,3 +4,4 @@ plugin 'cocoapods-rome'
 
 pod 'LXSemVer', '~> 1.0'
 pod 'LXXcodeTools', '~> 0.0'
+pod 'GRMustache.swift', '~> 0.11'

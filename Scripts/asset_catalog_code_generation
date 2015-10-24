@@ -1,0 +1,94 @@
+#!/usr/bin/env xcrun swift -F Rome
+
+import LXXcodeTools
+import Mustache
+
+enum Key: String {
+	case CatalogContents = "com.apple.actool.catalog-contents"
+}
+
+let templatePath = "templates/UIImage+AssetCatalogs.mustache"
+let assetCatalogPath = "../HackerNewsReader/Images.xcassets"
+
+struct Element {
+	typealias Attributes = [String: AnyObject]
+	
+	enum TagType: String {
+		case AppIconSet = "appiconset"
+		case Catalog = "xcassets"
+		case ImageSet = "imageset"
+		case Unknown = "unknown"
+	}
+	
+	let filename: String
+	let type: TagType
+	let attributes: Attributes
+	let children: [Element]?
+	
+	init?(attributes: Attributes) {
+		guard let filename = attributes["filename"] as? String else {
+			return nil
+		}
+		self.filename = filename
+		if let childrenAttributes = attributes["children"] as? [Attributes] {
+			var children = [Element]()
+			for childAttributes in childrenAttributes {
+				if let childElement = Element(attributes: childAttributes) {
+					children.append(childElement)
+				}
+			}
+			self.children = children
+		} else {
+			self.children = nil
+		}
+		if let extensionCharacterView = filename.characters.split(".").last {
+			self.type = TagType(rawValue: String(extensionCharacterView)) ?? .Unknown
+		} else {
+			self.type = .Unknown
+		}
+		self.attributes = attributes
+	}
+	
+	func childrenImageSet() -> [Element]? {
+		guard let children = self.children else {
+			return nil
+		}
+		var imageSets = [Element]()
+		for child in children {
+			switch (child.type) {
+			case .ImageSet:
+				imageSets.append(child)
+			default:
+				if let childImageSets = child.childrenImageSet() {
+					imageSets += childImageSets
+				}
+			}
+		}
+		return imageSets
+	}
+	
+	var identifier: String {
+		return String(self.filename.characters.split(".").first!)
+	}
+}
+ 
+ func elementsFromCatalogContents(catalogContents: [Element.Attributes]) -> [Element] {
+	 var elements = [Element]()
+	 for elementAttributes in catalogContents {
+		 if let element = Element(attributes: elementAttributes) {
+			 elements.append(element)
+		 }
+	 }
+	 return elements
+ } 
+ 
+if
+	let template = try? Template(path: templatePath),
+	let assetCatalog = AssetCatalogTool.printContents(assetCatalogPath) as? [String: AnyObject],
+	let catalogContents = assetCatalog[Key.CatalogContents.rawValue] as? [Element.Attributes]
+{
+	let assets = elementsFromCatalogContents(catalogContents).flatMap { $0.childrenImageSet()?.map{ [ "id": $0.identifier, "filename": $0.filename ] } }.first!
+	let data = ["assets": assets]
+	let rendering = try template.render(Box(data))
+	print(rendering)
+}
