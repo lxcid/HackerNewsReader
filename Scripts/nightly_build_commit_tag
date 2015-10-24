@@ -1,0 +1,26 @@
+#!/usr/bin/env xcrun swift -F Rome
+
+import LXSemVer
+import LXXcodeTools
+
+let root: NSString = ".."
+let workspace = root.stringByAppendingPathComponent("HackerNewsReader.xcworkspace")
+let scheme = "HackerNewsReader"
+let target = "HackerNewsReader"
+
+enum InfoPlistKey : String {
+	case VersionString = "CFBundleVersionString"
+	case ShortVersionString = "CFBundleShortVersionString"
+	case NightlyBuildVersionString = "LXNightlyBuildVersionString"
+}
+
+if
+	let buildSettings = XcodeBuild.BuildSettings(workspace: workspace, scheme: scheme),
+	let infoPlistFilePath = buildSettings.valueForKey(.InfoPlistFile, target: target),
+	let info = NSMutableDictionary(contentsOfFile: root.stringByAppendingPathComponent(infoPlistFilePath)),
+	let versionString = info[InfoPlistKey.ShortVersionString.rawValue] as? String,
+	let version = Version(string: versionString)
+{
+	print("WTF")
+	print(version)
+}
