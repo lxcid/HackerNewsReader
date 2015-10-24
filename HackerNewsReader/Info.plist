@@ -21,9 +21,11 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>CFBundleVersionString</key>
-	<string>2</string>
+	<string>3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LXNightlyBuildVersionString</key>
+	<string>1</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
