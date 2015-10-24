@@ -1,6 +1,2 @@
-#!/usr/bin/env xcrun swift -F Rome
-
-import Foundation
-
-let environments = NSProcessInfo.processInfo().environment
-print(environments) 
+#!/bin/sh
+set
